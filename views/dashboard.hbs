@@ -1,0 +1,20 @@
+{{> header}}
+<div class="container mt-4">
+    <h2>Dashboard</h2>
+    <p>Welcome to your book exchange dashboard!</p>
+    <h3>Your Books</h3>
+    <div class="row">
+        {{#each books}}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <a href="/book/{{this.id}}" class="btn btn-info">View</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{> footer}}

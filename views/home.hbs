@@ -1,0 +1,30 @@
+{{> header}}
+<div class="container mt-4">
+    <h2>Welcome to Book Exchange</h2>
+    <p id="welcome-message"></p>
+    
+    <div class="row">
+        {{#each books}}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">by {{this.author}}</p>
+                    <a href="/book/{{this.id}}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{> footer}}
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+        document.getElementById("welcome-message").textContent = `Hello, ${user.name}! Welcome back.`;
+    }
+});
+</script>
